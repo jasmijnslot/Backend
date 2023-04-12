@@ -1,7 +1,11 @@
 package com.example.backend;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "Klant")
 public class Klant {
