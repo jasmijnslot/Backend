@@ -2,11 +2,9 @@ package com.example.backend;
 
 import jakarta.persistence.*;
 
-import java.util.Date;
-
 @Entity
-@Table(name = "Dier")
-public class Dier {
+@Table(name = "Medicatie")
+public class Medicatie {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,9 +13,9 @@ public class Dier {
     @Column(name = "naam")
     private String naam;
 
-    @Column(name = "geboortDatum")
-    private Date geboorteDatum;
+    @Column(name = "dosering")
+    private String dosering;
 
-    @Column(name = "soort")
-    private String soort;
+    @Column(name = "opmerking")
+    private String opmerking;
 }
