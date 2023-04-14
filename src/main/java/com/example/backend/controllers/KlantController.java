@@ -1,5 +1,8 @@
-package com.example.backend;
+package com.example.backend.controllers;
 
+import com.example.backend.entities.Dier;
+import com.example.backend.repositories.KlantRepository;
+import com.example.backend.entities.Klant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,6 +29,11 @@ public class KlantController {
     @GetMapping("/klanten")
     public List<Klant> getAllKlanten() {
         return klantRepository.findAll();
+    }
+
+    @PutMapping("/klanten{id}")
+    public Klant updateKlant(@RequestBody Klant klant) {
+        return klantRepository.save(klant);
     }
 
 }

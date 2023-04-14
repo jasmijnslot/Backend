@@ -1,4 +1,4 @@
-package com.example.backend;
+package com.example.backend.entities;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -8,18 +8,16 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
-@Table(name = "Afspraak")
-public class Afspraak {
+@Table(name = "Behandeling")
+public class Behandeling {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "beschrijving")
+    private String beschrijving;
+
     @Column(name = "datum")
     private Date datum;
-
-    @Column(name = "reden")
-    private String reden;
-
-
 }

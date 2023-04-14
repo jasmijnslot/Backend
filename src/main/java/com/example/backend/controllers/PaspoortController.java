@@ -1,5 +1,8 @@
-package com.example.backend;
+package com.example.backend.controllers;
 
+import com.example.backend.entities.Dier;
+import com.example.backend.repositories.PaspoortRepository;
+import com.example.backend.entities.Paspoort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,5 +28,10 @@ public class PaspoortController {
     @GetMapping("/paspoorten")
     public List<Paspoort> getAllPaspoorten() {
         return paspoortRepository.findAll();
+    }
+
+    @PutMapping("/paspoorten{id}")
+    public Paspoort updatePaspoort(@RequestBody Paspoort paspoort) {
+        return paspoortRepository.save(paspoort);
     }
 }

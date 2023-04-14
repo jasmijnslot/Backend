@@ -1,5 +1,8 @@
-package com.example.backend;
+package com.example.backend.controllers;
 
+import com.example.backend.entities.Behandeling;
+import com.example.backend.repositories.DierRepository;
+import com.example.backend.entities.Dier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,6 +28,11 @@ public class DierController {
     @GetMapping("/dieren")
     public List<Dier> getAllDieren() {
         return dierRepository.findAll();
+    }
+
+    @PutMapping("/dieren{id}")
+    public Dier updateDier(@RequestBody Dier dier) {
+        return dierRepository.save(dier);
     }
 }
 

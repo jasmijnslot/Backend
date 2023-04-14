@@ -1,5 +1,7 @@
-package com.example.backend;
+package com.example.backend.controllers;
 
+import com.example.backend.repositories.AfspraakRepository;
+import com.example.backend.entities.Afspraak;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,5 +27,10 @@ public class AfspraakController {
     @GetMapping("/afspraken")
     public List<Afspraak> getAllAfspraken() {
         return afspraakRepository.findAll();
+    }
+
+    @PutMapping("/afspraken{id}")
+    public Afspraak updateAfspraak(@RequestBody Afspraak afspraak){
+        return afspraakRepository.save(afspraak);
     }
 }

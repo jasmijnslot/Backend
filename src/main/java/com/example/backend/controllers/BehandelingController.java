@@ -1,5 +1,7 @@
-package com.example.backend;
+package com.example.backend.controllers;
 
+import com.example.backend.repositories.BehandelingRepository;
+import com.example.backend.entities.Behandeling;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,5 +28,10 @@ public class BehandelingController {
     @GetMapping("/behandelingen")
     public List<Behandeling> getAllBehandelingen() {
         return behandelingRepository.findAll();
+    }
+
+    @PutMapping("/behandlingen{id}")
+    public Behandeling updateBehandeling(@RequestBody Behandeling behandeling) {
+        return behandelingRepository.save(behandeling);
     }
 }
