@@ -30,9 +30,14 @@ public class DierController {
         return dierRepository.findAll();
     }
 
-    @PutMapping("/dieren{id}")
+    @PutMapping("/dieren/{id}")
     public Dier updateDier(@RequestBody Dier dier) {
         return dierRepository.save(dier);
+    }
+
+    @DeleteMapping("/dieren/{id}")
+    public void deleteDier(@PathVariable Long id) {
+        dierRepository.deleteById(id);
     }
 }
 

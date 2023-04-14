@@ -31,9 +31,14 @@ public class KlantController {
         return klantRepository.findAll();
     }
 
-    @PutMapping("/klanten{id}")
+    @PutMapping("/klanten/{id}")
     public Klant updateKlant(@RequestBody Klant klant) {
         return klantRepository.save(klant);
+    }
+
+    @DeleteMapping("/klanten/{id}")
+    public void deleteKlant(@PathVariable Long id) {
+        klantRepository.deleteById(id);
     }
 
 }

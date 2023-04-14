@@ -30,8 +30,13 @@ public class PaspoortController {
         return paspoortRepository.findAll();
     }
 
-    @PutMapping("/paspoorten{id}")
+    @PutMapping("/paspoorten/{id}")
     public Paspoort updatePaspoort(@RequestBody Paspoort paspoort) {
         return paspoortRepository.save(paspoort);
+    }
+
+    @DeleteMapping("/paspoorten/{id}")
+    public void deletePaspoort(@PathVariable Long id) {
+        paspoortRepository.deleteById(id);
     }
 }

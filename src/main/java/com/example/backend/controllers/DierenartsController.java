@@ -30,8 +30,13 @@ public class DierenartsController {
         return dierenartsRepository.findAll();
     }
 
-    @PutMapping("/dierenartsen{id}")
+    @PutMapping("/dierenartsen/{id}")
     public Dierenarts updateDierenarts(@RequestBody Dierenarts dierenarts) {
         return dierenartsRepository.save(dierenarts);
+    }
+
+    @DeleteMapping("/dierenartsen/{id}")
+    public void deleteDierenarts(@PathVariable Long id) {
+        dierenartsRepository.deleteById(id);
     }
 }

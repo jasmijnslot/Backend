@@ -30,9 +30,14 @@ public class MedicatieController {
         return medicatieRepository.findAll();
     }
 
-    @PutMapping("/medicatiesid}")
+    @PutMapping("/medicaties/{id}")
     public Medicatie updateMedicatie(@RequestBody Medicatie medicatie) {
         return medicatieRepository.save(medicatie);
+    }
+
+    @DeleteMapping("/medicaties/{id}")
+    public void deleteMedicatie(@PathVariable Long id) {
+        medicatieRepository.deleteById(id);
     }
 }
 

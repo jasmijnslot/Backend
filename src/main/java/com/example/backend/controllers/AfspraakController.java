@@ -29,8 +29,14 @@ public class AfspraakController {
         return afspraakRepository.findAll();
     }
 
-    @PutMapping("/afspraken{id}")
-    public Afspraak updateAfspraak(@RequestBody Afspraak afspraak){
+    @PutMapping("/afspraken/{id}")
+    public Afspraak updateAfspraak(@PathVariable Long id, @RequestBody Afspraak afspraak){
         return afspraakRepository.save(afspraak);
     }
+
+    @DeleteMapping("/afspraken/{id}")
+    public void deleteAfspraak(@PathVariable Long id) {
+        afspraakRepository.deleteById(id);
+    }
+
 }

@@ -30,8 +30,13 @@ public class BehandelingController {
         return behandelingRepository.findAll();
     }
 
-    @PutMapping("/behandlingen{id}")
+    @PutMapping("/behandelingen/{id}")
     public Behandeling updateBehandeling(@RequestBody Behandeling behandeling) {
         return behandelingRepository.save(behandeling);
+    }
+
+    @DeleteMapping("/behandelingen/{id}")
+    public void deleteBehandeling(@PathVariable Long id) {
+        behandelingRepository.deleteById(id);
     }
 }
